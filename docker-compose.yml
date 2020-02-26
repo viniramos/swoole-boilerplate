@@ -1,0 +1,50 @@
+version: "3"
+services:
+  swoole:
+    container_name: microservice
+    restart: always
+    build:
+      context: .
+    ports:
+      - 1000:9501
+      - 1001:9051
+    volumes:
+      - ./src:/var/www
+      - /var/www/vendor
+    networks:
+      - microservice_net
+
+  postgres:
+    container_name: microservice-postgres 
+    image: postgres:9.6.1
+    restart: always
+    ports:
+      - "1032:5432"
+    environment:
+      POSTGRES_PASSWORD: '!dev2020'
+      POSTGRES_DB: microservice
+    networks:
+      - microservice_net
+
+  redis:
+    image: redis
+    container_name: microservice-redis
+    restart: always
+    ports: 
+      - '1079:6379'
+    networks:
+      - microservice_net
+
+  mongodb:
+    image: mongo:4.2
+    container_name: microservice-mongo
+    restart: always
+    ports:
+        - '10017:27017'
+    command: --storageEngine wiredTiger
+    networks:
+      - microservice_net
+
+networks:
+  microservice_net:
+    driver: bridge

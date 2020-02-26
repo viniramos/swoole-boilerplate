@@ -1,0 +1,9 @@
+{
+    "require": {
+        "leocavalcante/siler": "1.5"
+    },
+    "require-dev": {
+        "swoole/ide-helper": "*"
+    }
+
+}
