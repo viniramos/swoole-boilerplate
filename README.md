@@ -3,7 +3,7 @@
  
  ## Getting started
  
-Before using the repository it is necessary to install *GIT* and *Docker with docker-compose*
+Before using the repository it is necessary to install *GIT* and *Docker* with *docker-compose*
  
  * git clone https://github.com/viniramos/swoole-boilerplate
  * access path swoole-boilerplate
